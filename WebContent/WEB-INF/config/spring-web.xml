@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+     
+     <context:annotation-config></context:annotation-config>	
+     <context:component-scan base-package="com.lnt.web.controller"/>
+     <import resource="spring-core.xml"/>
+     
+     
+      <!-- ***************************all web related configurations here
+      	if you want only one context then we have to import the other context
+      	after importing it will create all the beans in the context only-->
+     <!-- <context:component-scan base-package="com.lnt.core.daos, com.lnt.core.services"/>
+     <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+     <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+     <property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+     <property name="username" value="HR"/>
+     <property name="password" value="hr"/>
+     </bean> -->
+     
+     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	     <property name="prefix">
+	     	<value>/WEB-INF/pages/</value>
+	     </property>
+	     <property name="suffix">
+	     	<value>.jsp</value>
+	     </property>
+     </bean>
+    
+</beans>
